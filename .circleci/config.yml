@@ -25,7 +25,7 @@ jobs:
             - app/node_modules
           key: v1-dependencies-{{ checksum "app/package.json" }}
 
-      - run: cd app && npm run build-prod
+      - run: cd app && npm run build
 
       # setup aws-cli and sync with s3 bucket
 
