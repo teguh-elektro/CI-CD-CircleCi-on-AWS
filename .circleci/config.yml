@@ -1,4 +1,10 @@
-build_deploy:
+version: 2.1
+
+orbs:
+  aws-cli: circleci/aws-cli@1.0.0
+
+jobs:  
+  build_deploy:
     executor: aws-cli/default
     working_directory: ~/devtest
     steps:
@@ -32,7 +38,7 @@ build_deploy:
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
 
       - run: cd app/dist/app && aws s3 sync . s3://dev.canopypower --delete --acl public-read
-      
+
 workflows:
   version: 2
   build:
