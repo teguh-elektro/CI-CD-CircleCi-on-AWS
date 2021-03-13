@@ -1,5 +1,7 @@
+version: 1
+
 jobs:
-  build_deploy:
+  build:
     machine:
       image: ubuntu-2004:202010-01
     steps:
@@ -14,7 +16,6 @@ jobs:
       - run: aws s3 sync ./app/dist/app s3://ci-cd-example
 
 workflow:
-  version: 1
   execute_bulk: 
     jobs:
-      - build-deploy
+      - build
