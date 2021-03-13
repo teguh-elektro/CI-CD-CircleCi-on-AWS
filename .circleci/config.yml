@@ -1,7 +1,7 @@
-version: 1
 
 
 workflows:
+  version: 1
   execute_bulk: 
     jobs:
       - build
