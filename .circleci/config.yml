@@ -8,9 +8,12 @@ jobs:
     executor: aws-cli/default
     working_directory: ~/devtest
     steps:
+    - run : | 
+        sudo apt install zip
+
     - run: |
         echo Running test
-        sudo mkdir /temp/deployed
+        sudo mkdir deployed
           
 workflows:
   version: 2
