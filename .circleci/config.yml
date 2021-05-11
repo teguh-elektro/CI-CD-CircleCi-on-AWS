@@ -6,15 +6,14 @@ orbs:
 jobs:  
   build_deploy:
     executor: aws-cli/default
-    working_directory: /temp
+    working_directory: ~/deployed
     steps:
     - run : | 
         sudo apt install zip
 
     - run: |
         echo Running test
-        sudo mkdir deployed
-        echo /temp
+        echo > /deployed
           
 workflows:
   version: 2
