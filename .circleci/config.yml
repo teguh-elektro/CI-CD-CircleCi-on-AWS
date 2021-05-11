@@ -10,7 +10,7 @@ jobs:
     steps:
       - checkout
       - run: |
-          cd /app
+          cd app
           sudo echo > ls
 
           
