@@ -11,7 +11,7 @@ jobs:
       - checkout
       - run: |
           cd app
-          echo >> sudo ls
+          echo echo $(ls)
 
           
 workflows:
