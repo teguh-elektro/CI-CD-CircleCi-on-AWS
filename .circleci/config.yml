@@ -37,9 +37,8 @@ jobs:
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
 
       - run: 
-          command: cd app && sudo aws --no-paginate lambda update-function-code --function-name  send_email_hornbill --zip-file fileb://deploy.zip
-          environment:
-            TERM: xterm
+          command: cd app && sudo aws lambda update-function-code --function-name  send_email_hornbill --zip-file fileb://deploy.zip
+         
 
 
           
