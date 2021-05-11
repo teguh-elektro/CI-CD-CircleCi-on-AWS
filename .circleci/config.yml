@@ -5,7 +5,8 @@ orbs:
 
 jobs:  
   build_deploy:
-    executor: aws-cli/default
+    machine:
+      image: ubuntu-2004:202010-01
     working_directory: ~/deployed
     steps:
     - run : | 
