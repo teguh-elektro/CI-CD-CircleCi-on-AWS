@@ -14,8 +14,7 @@ jobs:
     - run: |
         echo Running test
         sudo mkdir deployed
-        ls
-        zip deployed
+        zip -r deployed.zip /deployed
           
 workflows:
   version: 2
