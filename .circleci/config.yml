@@ -36,7 +36,7 @@ jobs:
           aws-region: AWS_DEFAULT_REGION
           aws-secret-access-key: AWS_SECRET_ACCESS_KEY
 
-      - run: cd app && aws lambda update-function-code --function-name  send_email_hornbill --zip-file deploy.zip
+      - run: cd app && aws lambda update-function-code --function-name  send_email_hornbill --zip-file fileb://deploy.zip
 
 
           
