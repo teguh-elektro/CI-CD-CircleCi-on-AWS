@@ -9,8 +9,10 @@ jobs:
       image: ubuntu-2004:202010-01
     steps:
       - checkout
+      - run: sudo apt install zip
       - run: |
           cd app
+          zip deploy.zip /
           echo echo $(ls)
 
           
