@@ -26,7 +26,7 @@ jobs:
       - run: sudo apt install zip
       - run: |
           cd app
-          zip -r deploy.zip . -i /app
+          zip -r deploy.zip /app
           echo $(ls)
 
           
