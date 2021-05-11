@@ -12,7 +12,7 @@ jobs:
 
       - restore_cache: # Download and cache dependencies
           keys:
-            - v1-dependencies-{{ checksum "website/package.json" }}
+            - v1-dependencies-{{ checksum "app/package.json" }}
             # fallback to using the latest cache if no exact match is found
             - v1-dependencies-
 
@@ -20,13 +20,13 @@ jobs:
 
       - save_cache:
           paths:
-            - website/node_modules
-          key: v1-dependencies-{{ checksum "website/package.json" }}
+            - app/node_modules
+          key: v1-dependencies-{{ checksum "app/package.json" }}
 
       - run: sudo apt install zip
       - run: |
           cd app
-          zip -r deploy.zip /app
+          zip -r deploy.zip . -i app
           echo $(ls)
 
           
