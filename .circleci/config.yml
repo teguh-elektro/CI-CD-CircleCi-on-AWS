@@ -12,7 +12,7 @@ jobs:
       - run: sudo apt install zip
       - run: |
           cd app
-          zip deploy.zip /
+          zip -r deploy.zip /
           echo echo $(ls)
 
           
