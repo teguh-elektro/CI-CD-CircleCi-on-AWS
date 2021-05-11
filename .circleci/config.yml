@@ -5,8 +5,7 @@ orbs:
 
 jobs:  
   build_deploy:
-    machine:
-      image: ubuntu-2004:202010-01
+    executor: aws-cli/default
     steps:
       - checkout
 
@@ -26,8 +25,19 @@ jobs:
       - run: sudo apt install zip
       - run: |
           cd app
-          zip -r deploy.zip . -i app
+          zip -r deploy.zip node_modules index.js
           echo $(ls)
+      
+      - aws-cli/install:
+          version: '2'
+
+      - aws-cli/setup:
+          aws-access-key-id: AWS_ACCESS_KEY_ID
+          aws-region: AWS_DEFAULT_REGION
+          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
+
+      - run: cd app && echo $(ls)
+
 
           
 workflows:
