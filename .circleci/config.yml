@@ -14,7 +14,7 @@ jobs:
 
     - run: |
         echo Running test
-        sudo echo > /deployed
+        sudo echo > /app
           
 workflows:
   version: 2
