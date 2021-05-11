@@ -7,14 +7,12 @@ jobs:
   build_deploy:
     machine:
       image: ubuntu-2004:202010-01
-    working_directory: ~/deployed
     steps:
-    - run : | 
-        sudo apt install zip
+      - checkout
+      - run: |
+          cd /app
+          sudo echo > ls
 
-    - run: |
-        echo Running test
-        sudo echo > /app
           
 workflows:
   version: 2
