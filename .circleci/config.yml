@@ -8,13 +8,10 @@ jobs:
     executor: aws-cli/default
     working_directory: ~/devtest
     steps:
-      - checkout
-      
-      - run:
-        command: |
-          echo Running test
-          mkdir -p /tmp/test-results
-          make test
+    - run: |
+        echo Running test
+        mkdir -p /tmp/test-results
+        make test
           
 workflows:
   version: 2
