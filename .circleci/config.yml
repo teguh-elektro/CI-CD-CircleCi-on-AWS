@@ -9,36 +9,13 @@ jobs:
     working_directory: ~/devtest
     steps:
       - checkout
-
-      # setup and build Angular  code
-
-      - restore_cache: # Download and cache dependencies
-          keys:
-            - v1-dependencies-{{ checksum "app/package.json" }}
-            # fallback to using the latest cache if no exact match is found
-            - v1-dependencies-
-
-      - run: cd app && npm install
-
-      - save_cache:
-          paths:
-            - app/node_modules
-          key: v1-dependencies-{{ checksum "app/package.json" }}
-
-      - run: cd app && npm run build
-
-      # setup aws-cli and sync with s3 bucket
-
-      - aws-cli/install:
-          version: '2'
-
-      - aws-cli/setup:
-          aws-access-key-id: AWS_ACCESS_KEY_ID
-          aws-region: AWS_DEFAULT_REGION
-          aws-secret-access-key: AWS_SECRET_ACCESS_KEY
-
-      - run: cd app/dist/app && aws s3 sync . s3://dev.canopypower --delete --acl public-read
-
+      
+      - run:
+        command: |
+          echo Running test
+          mkdir -p /tmp/test-results
+          make test
+          
 workflows:
   version: 2
   build:
